@@ -1,11 +1,17 @@
-# 📘 Programación 1 — Python
+# 🎓 Repositorio ITSE
 
-Este directorio contiene scripts desarrollados en **Python** para la asignatura **Programación 1**, perteneciente a la carrera de **Técnico Superior en Desarrollo de Software** 🧑‍💻.
+Repositorio oficial de código fuente correspondiente a asignaturas del **Instituto Tecnológico Santiago del Estero (ITSE)**.  
+Forma parte del trayecto formativo de la carrera **Técnico Superior en Desarrollo de Software** 💻.
 
-## 📂 Contenido
+---
 
-- 🧪 Trabajos prácticos (TP)
-- 📝 Ejercicios de clase
-- 🔁 Pruebas y experimentos con código
+## 📁 Estructura del repositorio
 
-> Cada carpeta agrupa ejercicios por tema o trabajo práctico para facilitar el acceso y la organización del material.
+```bash
+ITSE/
+├── programacion_1/
+│   └── TP1_Python/
+│       └── ejemplo.py
+├── Lógica y Estructura de Datos/        # Ignorada por Git (en preparación)
+└── README.md
+
