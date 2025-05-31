@@ -23,7 +23,8 @@ while nombre != 'S':
 nombre = ""
 while nombre != 'S':
     nombre = input('Ingrese el nombre de los estudiantes de segundo año o (S) para terminar\n')
-    segundo_año.append(nombre)
+    if nombre != 'S':
+        segundo_año.append(nombre)
 print(f'Los alumnos de primer año son: --> {primer_año}')
 print(f'Los alumnos de segundo año son: --> {segundo_año}')
 
