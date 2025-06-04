@@ -13,7 +13,7 @@ def lista_mas_uno(lista_num):
     for x in lista_num:
         numero_mas_uno = x + 1
         lista_num_mas1.append(numero_mas_uno)
-    return lista_num_mas1
+    return lista_num_mas1 
 
 #FUNCION PRINCIPAL
 def main():
