@@ -4,8 +4,8 @@ def es_entero(valor):
     return valor.lstrip('-').isdigit() and valor != '-'
 
 #FUNCION QUE VERIFICA QUE LOS VALORES SEAN POSITIVOS
-def es_positivo(num1, num2):
-    return num1 >= 0 and num2 >= 0
+def es_positivo(num1):
+    return num1 >= 0
 
 #FUNCION MULTIPLICACIÓN SIN SUMAS
 def multiSuma (num1, auxiliar):    

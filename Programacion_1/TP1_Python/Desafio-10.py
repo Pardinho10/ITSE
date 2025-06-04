@@ -1,29 +1,10 @@
 """Desafío 10
-    Un instituto de enseñanza de inglés necesita un programa que le permita, cada día,
-    procesar observaciones sobre las clases de ese día. El instituto dicta clases a
-    estudiantes de distintos niveles y cada nivel tiene clases en un día de la semana
-    diferente: los Lunes se dicta el nivel inicial, los Martes el nivel intermedio, los Miércoles
-    el nivel avanzado, los Jueves son para práctica hablada y los Viernes se dicta inglés
-    para viajeros.
-    Se debe comenzar por solicitar al usuario que ingrese la fecha actual en formato "día,
-    DD/MM", donde [día] es un día de la semana, DD es el número de día y MM es el
-    número de mes. Si el usuario ingresa un día de la semana inexistente o una fecha cuyo
-    día supere el número 31 o el mes supere el número 12, finalizar el programa indicando
-    que se produjo un error. Debe permitirse que ingrese el día de la semana en
-    minúsculas o mayúsculas indistintamente. Como precondición se tiene que lo
-    ingresado por el usuario tendrá la forma <[alfanumérico], [numérico]/[numérico]>.
-    Una vez indicada la fecha, el usuario necesita poder indicar si ese día se tomaron
-    exámenes, pero eso sólo si se trata de los niveles inicial, intermedio o avanzado, ya
-    que las prácticas habladas y el inglés para viajeros no tienen exámenes. Si hubo
-    exámenes, el usuario ingresará cuántos alumnos aprobaron y cuántos no, y el
-    programa le mostrará el porcentaje de aprobados.
-    Si el día fue el correspondiente a práctica hablada, el usuario deberá ingresar el
-    porcentaje de asistencia a clase y el programa le indicará "asistió la mayoría" en caso
-    de que la asistencia sea mayor al 50% o "no asistió la mayoría" si no es así.
-    Si se trata del inglés para viajeros y la fecha actual corresponde al día 1 del mes 1 o del
-    mes 7, se deberá imprimir "Comienzo de nuevo ciclo" y solicitar al usuario que ingrese
-    la cantidad de alumnos del nuevo ciclo y el arancel en $ por cada alumno, para luego
-    imprimir el ingreso total en $.
+    Un instituto de enseñanza de inglés necesita un programa que le permita, cada día, procesar observaciones sobre las clases de ese día. El instituto dicta clases a
+    estudiantes de distintos niveles y cada nivel tiene clases en un día de la semana diferente: los Lunes se dicta el nivel inicial, los Martes el nivel intermedio, los Miércoles el nivel avanzado, los Jueves son para práctica hablada y los Viernes se dicta inglés para viajeros.
+    Se debe comenzar por solicitar al usuario que ingrese la fecha actual en formato "día, DD/MM", donde [día] es un día de la semana, DD es el número de día y MM es el número de mes. Si el usuario ingresa un día de la semana inexistente o una fecha cuyo día supere el número 31 o el mes supere el número 12, finalizar el programa indicando que se produjo un error. Debe permitirse que ingrese el día de la semana en  minúsculas o mayúsculas indistintamente. Como precondición se tiene que lo ingresado por el usuario tendrá la forma <[alfanumérico], [numérico]/[numérico]>.
+    Una vez indicada la fecha, el usuario necesita poder indicar si ese día se tomaron exámenes, pero eso sólo si se trata de los niveles inicial, intermedio o avanzado, ya que las prácticas habladas y el inglés para viajeros no tienen exámenes. Si hubo exámenes, el usuario ingresará cuántos alumnos aprobaron y cuántos no, y el programa le mostrará el porcentaje de aprobados.
+    Si el día fue el correspondiente a práctica hablada, el usuario deberá ingresar el porcentaje de asistencia a clase y el programa le indicará "asistió la mayoría" en caso de que la asistencia sea mayor al 50% o "no asistió la mayoría" si no es así.
+    Si se trata del inglés para viajeros y la fecha actual corresponde al día 1 del mes 1 o del mes 7, se deberá imprimir "Comienzo de nuevo ciclo" y solicitar al usuario que ingrese la cantidad de alumnos del nuevo ciclo y el arancel en $ por cada alumno, para luego imprimir el ingreso total en $.
 """
 
 import continuar
@@ -170,12 +151,4 @@ while True:
         print('========FIN DEL PROGRAMA=======')
         break
 
-
-
-
-"""texto = input('Ingresa un texto\n')
-    x = slice(len(texto))
-    print('-'.join((texto[x])))
-    y = texto.split()
-    print(y)"""
 
