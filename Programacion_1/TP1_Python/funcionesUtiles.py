@@ -3,7 +3,6 @@ import random
 def es_entero(valor):
     return valor.lstrip('-').isdigit() and valor != '-'
 
-<<<<<<< HEAD
 #FUNCION QUE VALIDA FLOTANTES (POSITIVOS  Y NEGATIVOS)
 def es_flotante(valor):
     if valor.count('.') != 1:
@@ -17,12 +16,6 @@ def es_flotante(valor):
 def es_positivo(num1):
     return num1 >= 0 
 
-
-=======
-#FUNCION QUE VERIFICA QUE LOS VALORES SEAN POSITIVOS
-def es_positivo(num1):
-    return num1 >= 0
->>>>>>> 1e0919a387d3c7b599fc71566c37eb886ca0abb6
 
 #FUNCION MULTIPLICACIÓN SIN SUMAS
 def multiSuma (num1, auxiliar):    
