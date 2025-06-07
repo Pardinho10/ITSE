@@ -9,7 +9,9 @@ Forma parte del trayecto formativo de la carrera **Técnico Superior en Desarrol
 
 ```bash
 ITSE/
-├── programacion_1/
+├── Programacion_1/
+│   └── 1er. Evaluación Parcial/
+│   └── Extras/
 │   └── TP1_Python/
 │       └── ejemplo.py
 ├── Lógica y Estructura de Datos/        # Ignorada por Git (en preparación)

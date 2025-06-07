@@ -1,5 +1,4 @@
 import continuar
-
 def generar_lista():
     n = int(input('Ingrese cantidad de números a caragr en la lista\n'))
     lista_n = []
@@ -29,7 +28,7 @@ def calculos(lista):
         suma_n = suma_n + i
 
     if len(lista) > 0:
-        promedio = suma_n / len(lista)
+        promedio = suma_n / len(lista) 
         return promedio, cont_im, cont_par
     else:
         print('No ingresaste valores')

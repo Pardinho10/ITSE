@@ -16,6 +16,36 @@ def es_flotante(valor):
 def es_positivo(num1):
     return num1 >= 0 
 
+#======================FECHAS
+
+#SEPARACION DE LA CADENA FECHA
+def ingresar_fechas(mensaje):
+    fecha = input(mensaje).capitalize().strip()
+    dia = fecha.split(', ')[0]
+    dia_numero = int(fecha.split(', ')[1].split('/')[0])
+    mes = int(fecha.split('/')[1])
+    
+    if validar_fecha(dia, dia_numero, mes ):        
+        return dia, dia_numero, mes 
+    else:
+        return None
+
+#VALIDACION DE LA FECHA 
+def validar_fecha(dia, dia_numero, mes):
+    dia_habiles = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes']
+    if dia in dia_habiles and (dia_numero > 0 and dia_numero <= 31) and (mes > 0 and mes <= 12):
+        print('Fecha valida')
+        return True
+    elif dia in ('Domingo', 'Sabado'):
+        print('Sabado y Domingo son dias no laborables')
+    elif dia_numero < 0 or dia_numero > 31:
+        print(f'Dia {dia_numero} no es un día de mes valido')
+    elif mes < 0 or mes > 12:
+        print(f'Mes {mes} no es un mes valido')
+    else:
+        print('dia invalido')
+    return False
+#======================FECHAS
 
 #FUNCION MULTIPLICACIÓN SIN SUMAS
 def multiSuma (num1, auxiliar):    
