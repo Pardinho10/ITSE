@@ -64,4 +64,4 @@ empleado2 = Empleado('Cecilia', 32400)
 
 #Accedemos a metodos y atributos de los objetos de tipo Empleado
 print(f'Empleado: {empleado1.nombre:<10s} | Salario: {empleado1.salario}')
-print(f'Empleado: {empleado2.nombre:<10s} | Salario: {empleado2.salario}')
+print(f'Empleado: {empleado2.nombre:<10s} | Salario: {empleado2.salario}') 
