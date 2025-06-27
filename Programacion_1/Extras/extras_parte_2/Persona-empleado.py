@@ -58,6 +58,15 @@ class Empleado(Persona):
         #Se impirme la información del empleado
         pass
 
+    @classmethod
+    def desde_cadena(cls, cadena):
+        nombre, edad, salario = cadena.split(',')
+        return cls(nombre, int(edad), float(salario))
+    @staticmethod
+    def validar_salario(salario):
+        return salario >= 0
+
+
 #Instancias de la clase Empleado
 empleado1 = Empleado('Ariel', 23000)
 empleado2 = Empleado('Cecilia', 32400)
