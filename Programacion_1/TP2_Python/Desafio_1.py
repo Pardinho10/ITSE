@@ -27,7 +27,7 @@ class Estudiante():
         self._nota = nota
 
     def ingresar_datos_estudiante(self):
-        nombre_est = input('Ingrese el nombre del estudiante\n')
+        nombre_est = input('Ingrese el nombre del estudiante\n').capitalize()
         self.nombre = nombre_est
         while True:
             nota_est = input('Ingrese la nota del estudiante\n')
