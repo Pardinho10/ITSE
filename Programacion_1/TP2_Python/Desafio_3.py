@@ -32,6 +32,21 @@ class Calculadora():
     def suma(self):
         suma = self.numero_1 + self.numero_2
         return suma
+    
+    def resta(self):
+        resta =  self.numero_1 - self.numero_2
+        return resta
+    
+    def multiplicacion(self):
+        multi = self.numero_1 * self.numero_2
+        return multi
+    
+    def division(self):
+        if self.numero_2 != 0:
+            divi = self.numero_1 / self.numero_2
+            return divi
+        else:
+            print('Error: division entre cero no es permitida')
 
     def validar_valores(self, mensaje):
         while True:
@@ -50,7 +65,6 @@ class Calculadora():
 
 def desafio_3():
     calcu = Calculadora()
-    calcu.ingresar_valores()
     print('===========================')
     print('********CALCULADORA********')
     print('===========================')
@@ -62,17 +76,21 @@ def desafio_3():
     print('S - SALIR')
 
     opc = int(input('Ingrese una opcion'))
+    calcu.ingresar_valores()
  
     match opc:
         case 1:
             sumar = calcu.suma()
             print(f'El resultado de la suma es: ---> {sumar}')            
         case 2:
-            calcu.resta()
+            resta = calcu.resta()
+            print(f'El resultado de la resta es: ---> {resta}')   
         case 3:
-            calcu.multipliacion()
+            multiplicacion = calcu.multiplicacion()
+            print(f'El resultado del producto es: ---> {multiplicacion}')   
         case 4:
-            calcu.division()
+            division = calcu.division()
+            print(f'El resultado del cociente es: ---> {division}')   
         case _:
             print('Error')
 
