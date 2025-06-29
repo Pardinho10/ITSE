@@ -62,37 +62,41 @@ class Calculadora():
         self.numero_1 = float(self.validar_valores('Ingrese el primer digito\n'))
         self.numero_2 = float(self.validar_valores('Ingrese el segundo digito\n'))
 
+    @staticmethod
+    def menu():
+        print('===========================')
+        print('********CALCULADORA********')
+        print('===========================')
+        print('1 - SUMA')
+        print('2 - RESTA')
+        print('3 - MULTIPLICACIÓN')
+        print('4 - DIVISIÓN')
+        print('S o 0 - SALIR')
 
 def desafio_3():
     calcu = Calculadora()
-    print('===========================')
-    print('********CALCULADORA********')
-    print('===========================')
-    print('Seleccione una operación')
-    print('1 - SUMA')
-    print('2 - RESTA')
-    print('3 - MULTIPLICACIÓN')
-    print('4 - DIVISIÓN')
-    print('S - SALIR')
-
-    opc = int(input('Ingrese una opcion'))
+    Calculadora.menu()
+    opc = input('Seleccione una operación\n').strip()
+     
     calcu.ingresar_valores()
- 
     match opc:
-        case 1:
-            sumar = calcu.suma()
-            print(f'El resultado de la suma es: ---> {sumar}')            
-        case 2:
-            resta = calcu.resta()
-            print(f'El resultado de la resta es: ---> {resta}')   
-        case 3:
-            multiplicacion = calcu.multiplicacion()
-            print(f'El resultado del producto es: ---> {multiplicacion}')   
-        case 4:
-            division = calcu.division()
-            print(f'El resultado del cociente es: ---> {division}')   
+        case '1':
+            resultado = calcu.suma()
+            print(f'El resultado de la suma es: ---> {resultado}')            
+        case '2':
+            resultado = calcu.resta()
+            print(f'El resultado de la resta es: ---> {resultado}')   
+        case '3':
+            resultado = calcu.multiplicacion()
+            print(f'El resultado del producto es: ---> {resultado}')   
+        case '4':
+            resultado = calcu.division()
+            print(f'El resultado del cociente es: ---> {resultado}')  
+        case 's' | '0':
+            print('Saliendo del programa...')
+            return
         case _:
-            print('Error')
+            print('Error, opcin no validad')
 
 while True:
     desafio_3()
