@@ -6,7 +6,7 @@
     * es_mayor_de_edad(): Devuelve un valor lógico indicando si es mayor de edad. 
 """
 import continuar
-
+from funcionesUtiles import es_cadena, es_entero, es_flotante
 class Persona():
     def __init__(self, nombre=None, edad=None, dni=None):
         self.__nombre = nombre
@@ -52,12 +52,17 @@ class Persona():
 
     def ingresar_datos_persona(self):
         while True:
-            try:
-                self.nombre = input('Ingrese el nombre de la persona\n')
-                break
-            except (TypeError, ValueError) as e:
-                print(f"Error: {e}")
-        pass
+            nombre = input('Ingrese el nombre de la persona')
+            if es_cadena(nombre):
+                try:
+                    self.nombre = nombre
+                    break
+                except ValueError as e:
+                    print(f'Error : {e}')
+            else:
+                print('El nombre ingresado es invalido. Solo se permiten letras y espacios internos')
+            
+
 
 def desafio_7():
     persona = Persona()   

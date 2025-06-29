@@ -15,3 +15,8 @@ def es_flotante(valor):
 #FUNCION QUE VERIFICA QUE EL VALOR SEA POSITIVO
 def es_positivo(num1):
     return num1 > 0 
+
+#FUNCION QUE VERIFICA SI TENEMOS UA CADENA
+def es_cadena(valor):
+    valor = valor.strip()
+    return valor.replace(' ', '').isalpha() and len(valor) > 0
