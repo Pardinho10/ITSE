@@ -109,10 +109,12 @@ class Persona():
                 print('El DNI ingresado es incorrecta. DNI debe ser un número entero.') 
 
     def mostrar_datos(self):
+        print('+++++++++++++++++DATOS INGRESADOS+++++++++++++++++++++')
         print(f'Datos de {self.nombre}')
         print(f'Nombre y apellido: {self.nombre} {self.apellido}')
         print(f'Edad: {self.edad}')
         print(f'DNI: {self.DNI}')
+        print('++++++++++++++++++++++++++++++++++++++++++++++++++++')
 
     def es_mayor_de_edad(self):
         if self.edad >= 18:
