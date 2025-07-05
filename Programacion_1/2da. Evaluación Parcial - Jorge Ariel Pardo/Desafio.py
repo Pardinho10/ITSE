@@ -7,7 +7,7 @@ class Desafio:
     def titulo():
         print('=======================================================================')
         print('Desafio:')
-        print('Desafío: Informar los datos de una familia.')
+        print('Informar los datos de una familia.')
         print('=======================================================================')
 
     #MENU DE OPCIONES(ESTATICO)

@@ -1,4 +1,5 @@
 import random
+import re
 #FUNCION QUE VALIDA ENTEROS (POSITIVOS  Y NEGATIVOS)
 def es_entero(valor):
     return valor.lstrip('-').isdigit() and valor != '-'
@@ -16,7 +17,13 @@ def es_flotante(valor):
 def es_positivo(num1):
     return num1 > 0 
 
-#FUNCION QUE VERIFICA SI TENEMOS UA CADENA
+#FUNCION QUE VERIFICA SI TENEMOS UNA CADENA
 def es_cadena(valor):
     valor = valor.strip()
     return valor.replace(' ', '').isalpha() and len(valor) > 0
+
+#FUNCION QUE VERIFICA SI TENEMOS UN EMAIL
+def es_email_valido(email):
+    email = email.strip()
+    patron = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    return re.match(patron, email) is not None

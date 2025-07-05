@@ -37,8 +37,9 @@ class Circulo():
         print('===================================')
         print('********OPERACIONES CIRCULO********')
         print('===================================')
-        print('1 -CALCULAR AREA')
-        print('2 -CALCULAR PERIMETRO')
+        print('1 -CARGAR DATOS INICIALES')
+        print('2 -CALCULAR AREA')
+        print('3 -CALCULAR PERIMETRO')
         print('S o 0 - SALIR')
 
 
@@ -64,12 +65,13 @@ class Circulo():
         while True:
             Circulo.menu()
             opc = input('Seleccione una operación\n').strip().lower()
-            self.datos_iniciales()
             match opc:
                 case '1':
+                    self.datos_iniciales()
+                case '2':
                     resultado = self.area()
                     self.get_resultado(resultado, 'área del circulo')
-                case '2':
+                case '3':
                     resultado = self.perimetro()
                     self.get_resultado(resultado, 'perimetro del circulo')
                 case 's' | '0':

@@ -61,7 +61,7 @@ class Familia:
         cont_muj = 0
         print('\n===== CANTIDAD DE HIJOS MUJERES =====')
         for muj in self.list_hijos:
-            if muj.sexo == 'm':
+            if muj.sexo == 'f':
                 cont_muj += 1
         return cont_muj    
     #CANTIDAD DE HIJOS VARONES
