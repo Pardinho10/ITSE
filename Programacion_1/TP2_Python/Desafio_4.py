@@ -145,7 +145,6 @@ class Agenda():
 
         while True:
             self.listar_contacto_reducido()
-
             try:
                 opc = int(input('Seleccione un contacto de la lista para eliminar\n').strip())
                 if opc < 1 or opc > len(self.list_contacto):
@@ -172,12 +171,28 @@ class Agenda():
              
 
     def editar_contacto(self):
-        self.listar_contacto_reducido()
-        opc = int(input('Seleccione un contcto de la lista para editar\n').strip())
-        for i, cont in enumerate(self.list_contacto, 1):
-            if opc == i:
-              cont.ingresar_datos_contacto()
-              print(cont)
+        print('=EDITAR CONTACTO ESPECÍFICO=')
+        if not self.list_contacto:
+            print("No hay contactos cargados.")
+            return
+        while True:
+            self.listar_contacto_reducido()
+            try:
+                opc = int(input('Seleccione un contacto de la lista para editar\n').strip())
+                if opc < 1 or opc > len(self.list_contacto):
+                    print("Opción inválida. Intente de nuevo.")
+                    continue
+            except ValueError:
+                print("Entrada inválida. Debe ingresar un número.")
+                continue
+            for i, cont in enumerate(self.list_contacto, 1):
+                if opc == i:
+                    cont.ingresar_datos_contacto()
+                    print(cont)
+            
+            repetir = input('¿Desea editar otro contacto? (si|no): ').strip().lower()
+            if repetir != 'si':
+                break
 
     def listar_contacto(self):
         print('=LISTA DE CONTACTOS AGENDADOS=')
@@ -207,11 +222,26 @@ class Agenda():
 
     def buscar_contacto(self):
         print('=MOSTRAR DATOS DE CONTACTO ESPECIFICO=')
-        self.listar_contacto_reducido()
-        opc = int(input('Seleccione un contcto de la lista para mostrar\n').strip())
-        for i, cont in enumerate(self.list_contacto, 1):
-            if opc == i:
-              print(cont)   
+        if not self.list_contacto:
+            print("No hay contactos cargados.")
+            return
+        while True:
+            self.listar_contacto_reducido()
+            try:
+                opc = int(input('Seleccione un contacto de la lista para mostrar su informacion\n').strip())
+                if opc < 1 or opc > len(self.list_contacto):
+                    print("Opción inválida. Intente de nuevo.")
+                    continue
+            except ValueError:
+                print("Entrada inválida. Debe ingresar un número.")
+                continue
+            for i, cont in enumerate(self.list_contacto, 1):
+                if opc == i:
+                    print(cont)  
+            
+            repetir = input('¿Desea buscar otro contacto? (si|no): ').strip().lower()
+            if repetir != 'si':
+                break
 
 
     @staticmethod
