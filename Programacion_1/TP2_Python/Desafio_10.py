@@ -1,3 +1,7 @@
+""" Desafío 10
+    Desarrollar la Jerarquia de Clases
+    de la imágen y realizar un Test Unitario de funcionalidad. 
+"""
 import unittest
 
 # ===============================
@@ -91,5 +95,5 @@ class TestVehiculos(unittest.TestCase):
 #          EJECUCIÓN
 # ===============================
 
-if __name__ == '__main__':
-    unittest.main()
+
+unittest.main()
