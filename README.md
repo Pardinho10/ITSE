@@ -1,7 +1,12 @@
 # 🎓 Repositorio ITSE
 
-Repositorio oficial de código fuente correspondiente a asignaturas del **Instituto Tecnológico Santiago del Estero (ITSE)**.  
+Repositorio personal de código fuente correspondiente a asignaturas del **Instituto Tecnológico Santiago del Estero (ITSE)**.  
 Forma parte del trayecto formativo de la carrera **Técnico Superior en Desarrollo de Software** 💻.
+
+---
+
+👨‍💻 Autor: **Jorge Ariel Pardo**  
+📅 Año: 2025
 
 ---
 
