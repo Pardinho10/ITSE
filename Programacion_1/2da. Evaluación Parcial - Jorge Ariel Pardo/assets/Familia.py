@@ -10,7 +10,7 @@ class Familia:
         return f'{self.madre}'
     #CARGAR DATOS DE MADRE
     def cargar_madre(self):
-        persona_madre = Persona()
+        persona_madre = Persona() 
         persona_madre.ingresar_datos_persona('Ingrese los datos personales de la madre\n')
         self.madre = persona_madre
     #CARGAR DATOS DE PADRE

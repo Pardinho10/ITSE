@@ -11,9 +11,12 @@ Forma parte del trayecto formativo de la carrera **Técnico Superior en Desarrol
 ITSE/
 ├── Programacion_1/
 │   └── 1er. Evaluación Parcial/
+│   └── 2er. Evaluación Parcial/
 │   └── Extras/
 │   └── TP1_Python/
-│       └── ejemplo.py
+│       └── Desafio.py
+│   └── TP2_Python/
+│       └── Desafio.py
 ├── Lógica y Estructura de Datos/        # Ignorada por Git (en preparación)
 └── README.md
 
