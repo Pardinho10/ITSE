@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virgen del Valle</title>
+    <!-- CDN FONTAWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- ESTILOS CSS -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@100..900&family=Work+Sans:wght@100..900&display=swap");
+      /* ESTILOS GENERALES */
+      :root {
+        --celeste-d: #0081ba;
+        --celeste-f: #00618b;
+        --blanco-f: #f8f9fc;
+        --gris: #f1f4fb;
+        --negro: #232323;
+        --orange: #fbb72c;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+        list-style: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      body {
+        width: 100%;
+        font-family: "Montserrat", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--negro);
+      }
+
+      /* ESTILOS HEADER */
+      .main-header {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        z-index: 30;
+        background-color: var(--blanco-f);
+        box-shadow: 0px 14px 32px 0px #00000026;
+      }
+      /* HEADER-1 */
+      .header-1 {
+        width: 100vw;
+        background-color: var(--celeste-f);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 260px;
+      }
+
+      .h-1-list-ini-container,
+      .h-1-list-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .h-1-list-ini-container .ini,
+      .h-1-list-container .redes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .redes a,
+      .ini a {
+        color: var(--blanco-f);
+        font-size: 18px;
+      }
+
+      .redes a:hover,
+      .ini a:hover {
+        color: var(--orange);
+        font-size: 18px;
+        transition: 0.5s all linear;
+      }
+
+      .h-1-text-container {
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .h-1-text-container h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: var(--blanco-f);
+      }
+
+      /* HEADER-2 */
+      .header-2 {
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 180px 5px 160px;
+      }
+
+      .h-2-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .h-2-logo-container i {
+        font-size: 44px;
+        color: var(--celeste-f);
+      }
+
+      .h-2-text-logo-container {
+        font-family: "Playfair Display", serif;
+        color: var(--celeste-f);
+      }
+
+      .h-2-text-logo-container h1 {
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 20px;
+      }
+
+      .h-2-text-logo-container h2 {
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      .h-2-nav-container .nav-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .h-2-nav-container .nav-list a {
+        color: #00618b;
+        font-weight: 700;
+        font-size: 18px;
+        text-decoration: none;
+      }
+
+      .h-2-nav-container .nav-list a:hover {
+        color: var(--orange);
+        transition: 0.5s all linear;
+      }
+
+      .h-2-hamb-container {
+        display: none;
+      }
+
+      .header-2 .mobile-toggle {
+        display: none;
+      }
+
+      .main {
+        padding-top: 115px;
+      }
+
+      /* CAROUSEL */
+      .carrusel {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+        height: 650px;
+      }
+
+      .carrusel-interno {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .carrusel-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+        z-index: 1;
+      }
+
+      .carrusel-item.activo {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      .imagen-carrusel {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .carrusel-control {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15%;
+        color: var(--blanco-f);
+        opacity: 0.5;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.15s ease;
+      }
+
+      .carrusel-control:hover {
+        opacity: 0.9;
+      }
+
+      .carrusel-prev {
+        left: 0;
+      }
+
+      .carrusel-next {
+        right: 0;
+      }
+
+      .oculto-visual {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+
+      .carrusel-control span[aria-hidden="true"] {
+        font-size: 48px;
+        line-height: 1;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      }
+
+      .tienda-container {
+        text-align: center;
+        padding-top: 50px;
+      }
+      .tienda-container h1 {
+        font-size: 34px;
+        color: var(--celeste-f);
+        text-transform: uppercase;
+        margin-bottom: 40px;
+      }
+
+      .carrusel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Fondo oscuro con 60% de opacidad */
+        background-color: #00000099;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--blanco-f);
+        z-index: 2;
+      }
+
+      .overlay-content {
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      .overlay-content h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 50px;
+        margin-bottom: 20px;
+        color: var(--blanco-f);
+        line-height: 1.2;
+      }
+
+      .overlay-content p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: var(--blanco-f);
+      }
+
+      .overlay-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .btn-overlay {
+        display: inline-block;
+        padding: 15px 35px;
+        background-color: var(--celeste-d);
+        color: var(--blanco-f);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        border: 2px solid var(--celeste-d);
+      }
+
+      .btn-overlay:hover {
+        background-color: var(--celeste-f);
+        color: var(--blanco-f);
+      }
+
+      .btn-secondary-overlay {
+        background-color: transparent;
+        border: 2px solid var(--blanco-f);
+        color: var(--blanco-f);
+      }
+
+      .btn-secondary-overlay:hover {
+        background-color: var(--blanco-f);
+        color: var(--celeste-f);
+        border-color: var(--blanco-f);
+      }
+
+      /* CARDS */
+      .auto-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 20px auto 50px auto;
+        max-width: 1400px;
+        padding: 0 20px;
+      }
+
+      .auto-card {
+        width: 380px;
+        position: relative;
+        box-shadow: 0px 14px 32px 0px #00000026;
+        margin: 0;
+        background: #fafafa;
+      }
+
+      .auto-tumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        padding: 50px;
+        background: #f0f0f0;
+      }
+
+      .auto-tumb img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .auto-details {
+        padding: 30px;
+      }
+
+      .auto-category {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #ccc;
+        margin-bottom: 18px;
+      }
+
+      .auto-details h4 a {
+        font-weight: 500;
+        display: block;
+        margin-bottom: 18px;
+        text-transform: uppercase;
+        color: #363636;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .auto-details h4 a:hover {
+        color: #fbb72c;
+      }
+
+      .auto-details p {
+        font-size: 15px;
+        line-height: 22px;
+        margin-bottom: 18px;
+        color: #999;
+      }
+
+      .auto-bottom-details {
+        overflow: hidden;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+      }
+
+      .auto-bottom-details div {
+        float: left;
+        width: 50%;
+      }
+
+      .auto-price {
+        font-size: 18px;
+        color: #fbb72c;
+        font-weight: 600;
+      }
+
+      .auto-price small {
+        font-size: 80%;
+        font-weight: 400;
+        text-decoration: line-through;
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .auto-links {
+        text-align: right;
+      }
+
+      .auto-links a {
+        display: inline-block;
+        margin-left: 5px;
+        color: #e1e1e1;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+      .auto-links a:hover {
+        color: var(--orange);
+      }
+
+      /* ============================================== */
+      /* MEDIA QUERIES - RESPONSIVE DESIGN     */
+      /* ============================================== */
+
+      /* ----------------------------------------------- */
+      /* A. PANTALLAS PEQUEÑAS (Mobile: 320px - 767px)   */
+      /* ----------------------------------------------- */
+
+      @media (max-width: 767px) {
+        /* HEADER */
+        .header-1 {
+          display: none;
+        }
+
+        .main {
+          padding-top: 60px;
+        }
+
+        .main-header {
+          width: 100%;
+        }
+
+        .header-2 {
+          padding: 10px 20px;
+        }
+
+        /* Logo y Títulos */
+        .h-2-logo-container {
+          gap: 5px;
+        }
+        .h-2-logo-container i {
+          font-size: 32px;
+        }
+        .h-2-text-logo-container h1 {
+          font-size: 20px;
+          line-height: 18px;
+        }
+        .h-2-text-logo-container h2 {
+          font-size: 14px;
+        }
+
+        /* Navegación y Hamburguesa */
+        .h-2-nav-container {
+          display: none;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background-color: var(--celeste-f);
+          box-shadow: 0 4px 8px #0000001a;
+          z-index: 25;
+        }
+
+        .h-2-hamb-container {
+          display: block;
+          font-size: 28px;
+          color: var(--celeste-f);
+          cursor: pointer;
+        }
+
+        .header-2 #toggle-menu:checked ~ .h-2-nav-container {
+          display: block;
+        }
+
+        .h-2-nav-container {
+          display: none;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          background-color: var(--celeste-f);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          z-index: 25;
+        }
+
+        .h-2-nav-container .nav-list {
+          flex-direction: column;
+          padding: 15px 0;
+          gap: 10px;
+        }
+
+        .h-2-nav-container .nav-list a {
+          color: var(--blanco-f);
+          padding: 10px 20px;
+          display: block;
+          text-align: center;
+        }
+
+        .h-2-hamb-container {
+          /* Mostrar el icono de hamburguesa */
+          display: block;
+          font-size: 28px;
+          color: var(--celeste-f);
+        }
+
+        .h-2-hamb-container label{            
+          cursor: pointer;
+        }
+
+        .h-2-hamb-container input {
+          display: none;
+        }
+
+        /* CARRUSEL y OVERLAY */
+        .carrusel {
+          height: 450px;
+        }
+
+        .overlay-content h2 {
+          font-size: 28px;
+          margin-bottom: 15px;
+        }
+
+        .overlay-content p {
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+
+        .overlay-buttons {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .btn-overlay {
+          padding: 12px 25px;
+          font-size: 1rem;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        /* TIENDA (Cards) */
+        .auto-grid {
+          padding: 0 10px;
+          gap: 25px;
+        }
+
+        .auto-card {
+          width: 90%;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .tienda-container h1 {
+          font-size: 28px;
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /* B. PANTALLAS MEDIANAS (Tablet: 768px - 1024px) */
+      /* ----------------------------------------------- */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        /* HEADER */
+        .header-1 {
+          padding: 10px 50px;
+        }
+
+        .header-2 {
+          padding: 10px 50px 0px 50px;
+        }
+
+        /* CARRUSEL */
+        .carrusel {
+          height: 550px;
+        }
+
+        .overlay-content h2 {
+          font-size: 38px;
+        }
+
+        .overlay-content p {
+          font-size: 20px;
+        }
+
+        /* TIENDA (Cards) */
+        .auto-grid {
+          justify-content: space-around;
+          padding: 0 20px;
+        }
+
+        .auto-card {
+          width: 45%; /* Dos tarjetas por fila con espacio entre ellas */
+          max-width: 350px;
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /* C. PANTALLAS GRANDES (Desktop: > 1024px)         */
+      /* ----------------------------------------------- */
+      /* No se necesitan cambios, los estilos base ya cubren esta vista. */
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <!-- MAIN-HEADER -->
+    <header class="main-header">
+      <!-- HEADER-1 -->
+      <div class="header-1">
+        <div class="h-1-list-ini-container">
+          <ul class="ini">
+            <li>
+              <a href=""><i class="fas fa-envelope"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fas fa-user"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fab fa-shopify"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="h-1-text-container">
+          <h1>Todo lo que te mueve en un solo lugar</h1>
+        </div>
+        <div class="h-1-list-container">
+          <ul class="redes">
+            <li>
+              <a href=""><i class="fab fa-facebook-square"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fab fa-whatsapp"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HEADER-2 -->
+      <div class="header-2">
+        <div class="h-2-logo-container">
+          <i class="fas fa-car-side"></i>
+          <div class="h-2-text-logo-container">
+            <h1>VIRGEN DEL VALLE</h1>
+            <h2>AUTOMOTORES</h2>
+          </div>
+        </div>
+        <input type="checkbox" name="" id="toggle-menu" class="mobile-toggle" />
+
+        <div class="h-2-hamb-container">
+          <label for="toggle-menu"><i class="fas fa-bars"></i></label>
+        </div>
+        <nav class="h-2-nav-container">
+          <ul class="nav-list">
+            <li><a href="">Servicios</a></li>
+            <li><a href="">Nosotros</a></li>
+            <li><a href="">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div id="miCarrusel" class="carrusel">
+          <div class="carrusel-interno">
+            <div class="carrusel-item activo">
+              <img
+                src="https://resizer.iproimg.com/unsafe/1280x/filters:format(webp)/https://assets.iprofesional.com/assets/jpg/2018/07/461321.jpg"
+                alt="Primer auto en venta"
+                class="imagen-carrusel"
+              />
+            </div>
+            <div class="carrusel-item">
+              <img
+                src="https://resizer.iproimg.com/unsafe/1280x/filters:format(webp)/https://assets.iprofesional.com/assets/jpg/2021/07/519548.jpg"
+                alt="Segundo auto en venta"
+                class="imagen-carrusel"
+              />
+            </div>
+            <div class="carrusel-item">
+              <img
+                src="https://arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/4ZIVFSJV4JAULCJA4PAVV23PLM.jpg"
+                alt="Tercer auto en venta"
+                class="imagen-carrusel"
+              />
+            </div>
+          </div>
+          <div class="carrusel-overlay">
+            <div class="overlay-content">
+              <h2>Encuentra el Vehículo Perfecto para Ti</h2>
+              <p>
+                Financiación flexible y las mejores marcas te esperan en Virgen
+                del Valle Automotores.
+              </p>
+              <div class="overlay-buttons">
+                <a href="#" class="btn-overlay">Ver Catálogo</a>
+                <a href="#" class="btn-overlay btn-secondary-overlay"
+                  >Pedir Cotización</a
+                >
+              </div>
+            </div>
+          </div>
+          <button
+            class="carrusel-control carrusel-prev"
+            type="button"
+            data-direccion="prev"
+          >
+            <span aria-hidden="true">❮</span>
+            <span class="oculto-visual">Anterior</span>
+          </button>
+          <button
+            class="carrusel-control carrusel-next"
+            type="button"
+            data-direccion="next"
+          >
+            <span aria-hidden="true">❯</span>
+            <span class="oculto-visual">Siguiente</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- TIENDA -->
+      <section class="tienda">
+        <div class="tienda-container">
+          <h1>Vehículos disponibles</h1>
+        </div>
+        <div class="auto-grid">
+          <div class="auto-card">
+            <div class="auto-tumb">
+              <img
+                src="https://acroadtrip.blob.core.windows.net/catalogo-imagenes/s/RT_V_0db8955ac91b489a817b0cd1754b978e.webp"
+                alt=""
+              />
+            </div>
+            <div class="auto-details">
+              <h4><a href="">Citroen C3</a></h4>
+              <p>
+                Posee una calibración especifica de la suspensión, la dirección
+                y los frenos. Con 180 mm de despeje del suelo, el C3 es el más
+                alto entre sus competidores.
+              </p>
+              <div class="auto-bottom-details">
+                <div class="auto-price">$28.250.000</div>
+                <div class="auto-links">
+                  <a href=""><i class="fa fa-heart"></i></a>
+                  <a href=""><i class="fa fa-shopping-cart"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="auto-card">
+            <div class="auto-tumb">
+              <img
+                src="https://acroadtrip.blob.core.windows.net/catalogo-imagenes/s/RT_V_01bd8671c7164440833188cef3feb27c.webp"
+                alt=""
+              />
+            </div>
+            <div class="auto-details">
+              <h4><a href="">Chevrolet Onyx</a></h4>
+              <p>
+                La versión más completa de la línea: diseño imponente, acabados
+                exclusivos y tecnologías que marcan la diferencia. Posee un alto control aerodinámico.
+              </p>
+              <div class="auto-bottom-details">
+                <div class="auto-price">$33.525.000</div>
+                <div class="auto-links">
+                  <a href=""><i class="fa fa-heart"></i></a>
+                  <a href=""><i class="fa fa-shopping-cart"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="auto-card">
+            <div class="auto-tumb">
+              <img
+                src="https://acroadtrip.blob.core.windows.net/catalogo-imagenes/s/RT_V_8a6721feb2124b2e8ce38ee407cb8403.webp"
+                alt=""
+              />
+            </div>
+            <div class="auto-details">
+              <h4><a href="">Peugeot 208</a></h4>
+              <p>
+                Fue desarrollado con materiales especiales los cuales reducen
+                las fricciones internas. Eroga una potencia de 82 cv y 118 Nm de
+                torque
+              </p>
+              <div class="auto-bottom-details">
+                <div class="auto-price">$34.000.000</div>
+                <div class="auto-links">
+                  <a href=""><i class="fa fa-heart"></i></a>
+                  <a href=""><i class="fa fa-shopping-cart"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- BOOTSTRAP - JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carrusel = document.getElementById("miCarrusel");
+        const items = carrusel.querySelectorAll(".carrusel-item");
+        const prevButton = carrusel.querySelector(".carrusel-prev");
+        const nextButton = carrusel.querySelector(".carrusel-next");
+        let currentIndex = 0;
+        const intervalTime = 5000; // 5 segundos para auto-avance
+        let carruselInterval;
+
+        function showItem(index) {
+          // 1. Quita la clase 'activo' del ítem actual
+          items[currentIndex].classList.remove("activo");
+
+          // 2. Calcula el nuevo índice asegurando que se quede dentro del rango
+          if (index >= items.length) {
+            currentIndex = 0;
+          } else if (index < 0) {
+            currentIndex = items.length - 1;
+          } else {
+            currentIndex = index;
+          }
+
+          // 3. Añade la clase 'activo' al nuevo ítem
+          items[currentIndex].classList.add("activo");
+        }
+
+        function move(direction) {
+          let newIndex = currentIndex;
+          if (direction === "next") {
+            newIndex++;
+          } else if (direction === "prev") {
+            newIndex--;
+          }
+          showItem(newIndex);
+          // Reinicia el temporizador de auto-avance
+          resetInterval();
+        }
+
+        // --- Funcionalidad de Auto-Avance ---
+        function startInterval() {
+          carruselInterval = setInterval(function () {
+            move("next");
+          }, intervalTime);
+        }
+
+        function resetInterval() {
+          clearInterval(carruselInterval);
+          startInterval();
+        }
+
+        // --- Event Listeners para los botones ---
+        prevButton.addEventListener("click", function () {
+          move("prev");
+        });
+
+        nextButton.addEventListener("click", function () {
+          move("next");
+        });
+
+        // Iniciar el carrusel
+        startInterval();
+      });
+    </script>
+  </body>
+</html>
