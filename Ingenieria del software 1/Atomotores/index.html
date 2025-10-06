@@ -278,7 +278,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        /* Fondo oscuro con 60% de opacidad */
+        /* Aquí fondo oscuro con 60% de opacidad */
         background-color: #00000099;
         display: flex;
         justify-content: center;
@@ -845,7 +845,7 @@
       </section>
     </main>
 
-    <!-- BOOTSTRAP - JS -->
+    <!-- JS - CARROUSEL -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const carrusel = document.getElementById("miCarrusel");
@@ -857,10 +857,7 @@
         let carruselInterval;
 
         function showItem(index) {
-          // 1. Quita la clase 'activo' del ítem actual
           items[currentIndex].classList.remove("activo");
-
-          // 2. Calcula el nuevo índice asegurando que se quede dentro del rango
           if (index >= items.length) {
             currentIndex = 0;
           } else if (index < 0) {
@@ -868,8 +865,6 @@
           } else {
             currentIndex = index;
           }
-
-          // 3. Añade la clase 'activo' al nuevo ítem
           items[currentIndex].classList.add("activo");
         }
 
@@ -881,7 +876,6 @@
             newIndex--;
           }
           showItem(newIndex);
-          // Reinicia el temporizador de auto-avance
           resetInterval();
         }
 
