@@ -19,11 +19,14 @@
       /* ESTILOS GENERALES */
       :root {
         --celeste-d: #0081ba;
-        --celeste-f: #00618b;
-        --blanco-f: #f8f9fc;
+        --celeste-f: #49596b;
+        --blanco-f: #fdfcf4;
         --gris: #f1f4fb;
         --negro: #232323;
-        --orange: #fbb72c;
+        --sombra: #00000026;
+        --orange: #e36d3d;
+        --rojo-ladrillo: #c85140;
+        --verde-man: #a7c4b2;
       }
 
       * {
@@ -56,7 +59,7 @@
         position: fixed;
         z-index: 30;
         background-color: var(--blanco-f);
-        box-shadow: 0px 14px 32px 0px #00000026;
+        box-shadow: 0px 14px 32px 0px var(--sombra);
       }
       /* HEADER-1 */
       .header-1 {
@@ -154,7 +157,7 @@
       }
 
       .h-2-nav-container .nav-list a {
-        color: #00618b;
+        color: var(--celeste-f);
         font-weight: 700;
         font-size: 18px;
         text-decoration: none;
@@ -175,6 +178,7 @@
 
       .main {
         padding-top: 115px;
+        background-color: var(--blanco-f);
       }
 
       /* CAROUSEL */
@@ -318,19 +322,20 @@
       .btn-overlay {
         display: inline-block;
         padding: 15px 35px;
-        background-color: var(--celeste-d);
+        background-color: var(--orange);
         color: var(--blanco-f);
         text-decoration: none;
         border-radius: 5px;
         font-weight: 600;
         font-size: 1.1rem;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        border: 2px solid var(--celeste-d);
+        transition: background-color 0.8s ease, transform 0.8s ease;
+        /* border: 2px solid var(--orange); */
       }
 
       .btn-overlay:hover {
         background-color: var(--celeste-f);
         color: var(--blanco-f);
+        border: none;
       }
 
       .btn-secondary-overlay {
@@ -361,7 +366,7 @@
         position: relative;
         box-shadow: 0px 14px 32px 0px #00000026;
         margin: 0;
-        background: #fafafa;
+        background: var(--blanco-f);
       }
 
       .auto-tumb {
@@ -453,15 +458,143 @@
         color: var(--orange);
       }
 
+      /* FOOTER */
+      footer {
+        background-color: var(--celeste-f);
+        color: var(--blanco-f);
+        padding: 40px 20px;
+      }
+
+      .footer-content{
+        max-width: 1200px;
+        margin: 0 auto; /* centrado */
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        flex-wrap: wrap;
+        /* background-color: #0081ba; */
+      }
+
+      .footer-column{
+        /* flex: 1; */
+        min-width: 100px;
+      }
+
+      .footer-column h3 {
+         font-family: "Playfair Display", serif;
+          margin-bottom: 15px;
+          font-size: 20px;
+          letter-spacing: 1px;
+          color: #ecf0f1;
+          border-bottom: 3px solid var(--rojo-ladrillo);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: var(--blanco-f);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--orange);
+        }
+
+        .icon-foot{
+          margin-right: 10px;
+          color: var(--verde-man);
+        }
+
+        .map-container {
+            margin-top: 10px;
+        }
+
+        .footer-map iframe {
+            filter: grayscale(30%) contrast(90%);
+            transition: filter 0.3s;
+        }
+
+        .footer-map iframe:hover {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        .footer-bottom {
+            background: #1a252f;
+            text-align: center;
+            padding: 20px;
+            color: var(--gris);
+            font-size: 14px;
+        }
+
+        .ul-footer-icons{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .ul-footer-icons i{
+          color: var(--verde-man);
+          padding: 5px 20px 5px 7px;
+          border: 1px solid var(--verde-man);
+          border-radius: 5px;
+        }
+        .ul-footer-icons i:hover{
+          color: var(--orange);
+          padding: 5px 20px 5px 7px;
+          border: 1px solid var(--orange);
+          transition: 0.5s all linear;
+
+        }
+        
+
       /* ============================================== */
       /* MEDIA QUERIES - RESPONSIVE DESIGN     */
       /* ============================================== */
+
+     /* ----------------------------------------------- */
+      /* A. PANTALLAS PEQUEÑAS (Mobile: 480px)   */
+      /* ----------------------------------------------- */
+
+        @media (max-width: 480px) {
+            .footer-column h3 {
+                font-size: 16px;
+            }
+
+            .footer-bottom {
+                font-size: 12px;
+                padding: 15px;
+            }
+        }
+      
 
       /* ----------------------------------------------- */
       /* A. PANTALLAS PEQUEÑAS (Mobile: 320px - 767px)   */
       /* ----------------------------------------------- */
 
       @media (max-width: 767px) {
+        /* FOOTER */
+         .footer-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .footer-column {
+                min-width: 100%;
+            }
+
+            footer {
+                padding: 30px 20px 0;
+            }
+
         /* HEADER */
         .header-1 {
           display: none;
@@ -669,7 +802,8 @@
         <div class="h-1-list-container">
           <ul class="redes">
             <li>
-              <a href=""><i class="fab fa-facebook-square"></i></a>
+              <!-- <a href=""><i class="fab fa-facebook-square"></i></a> -->
+              <a href=""><i class="fa-brands fa-x-twitter"></i></a>
             </li>
             <li>
               <a href=""><i class="fab fa-instagram"></i></a>
@@ -844,6 +978,67 @@
           </div>
         </div>
       </section>
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-lists-container">
+          <div class="footer-content">
+            <div class="footer-column">
+              <h3>Ubicación</h3>
+                <div class="map-container">
+                    <iframe 
+                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1714.432362448642!2d-64.25154339766377!3d-27.799361836728792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x943b520772204209%3A0xbc2f1f1d98a3abda!2sAzcu%C3%A9naga%2C%20G4200%20Santiago%20del%20Estero!5e0!3m2!1ses-419!2sar!4v1759926301050!5m2!1ses-419!2sar"
+                        width="400" 
+                        height="250" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+              
+            </div>
+            <div class="footer-column">
+              <ul>
+                <h3>Marcas</h3>
+                <li><a href="">Volkswagen</a></li>
+                <li><a href="">Renault</a></li>
+                <li><a href="">Chevrolet</a></li>
+                <li><a href="">Citroen</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <ul>
+                <h3>Empresa</h3>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Servicios</a></li>
+                <li><a href="">Tienda</a></li>
+                <li><a href="">Contacto</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <ul>
+                <h3>Contacto</h3>
+                <li><i class="fas fa-location-dot icon-foot"></i><a href="">Miguel de Azcuenaga 781</a></li>
+                <li><i class="fas fas fa-envelope-open icon-foot"></i><a href="">V_delvalle@automail.com</a></li>
+                <li><i class="fas fas fa-phone icon-foot"></i><a href="">+54 9875 56-9856</a></li>
+                <li><i class="fas fas fa-clock icon-foot"></i><a href="">Lun-Vie 09-16:30 / Sab 09-13</a></li>
+                <ul class="ul-footer-icons">
+                  <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
+                  <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                  <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                  <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+            
+            
+          </div>
+        </div>
+      </footer>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ingeniería del software.</p>
+      </div>
     </main>
 
     <!-- JS - CARROUSEL -->
