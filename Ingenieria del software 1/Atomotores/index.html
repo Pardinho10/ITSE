@@ -11,6 +11,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- ESTILOS CSS -->
+
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@100..900&family=Work+Sans:wght@100..900&display=swap");
 
@@ -19,7 +20,7 @@
       --celeste-d: #0081ba;
       --celeste-f: #49596b;
       --blanco-f: #fdfcf4;
-      --gris: #f1f4fb;
+      --gris: #ebebeb;
       --negro: #232323;
       --sombra: #00000026;
       --orange: #e36d3d;
@@ -270,10 +271,14 @@
     }
 
     .tienda-container h1 {
-      font-size: 34px;
       color: var(--celeste-f);
-      text-transform: uppercase;
+      font-family: "Playfair Display", serif;
+      text-transform: capitalize;
+      font-size: 34px;
       margin-bottom: 40px;
+      border-bottom: 3px solid var(--orange);
+      padding-bottom: 8px;
+      display: inline-block;
     }
 
     .carrusel-overlay {
@@ -350,7 +355,9 @@
       border-color: var(--blanco-f);
     }
 
-    /* CARDS */
+
+
+    /* TIENDA Y CARDS */
     .auto-grid {
       display: flex;
       justify-content: center;
@@ -364,7 +371,7 @@
     .auto-card {
       width: 380px;
       position: relative;
-      box-shadow: 0px 14px 32px 0px #00000026;
+      box-shadow: 0px 14px 32px 0px var(--sombra);
       margin: 0;
       background: var(--blanco-f);
     }
@@ -375,7 +382,7 @@
       justify-content: center;
       height: 300px;
       padding: 50px;
-      background: #d8eefe;
+      background: var(--gris);
     }
 
     .auto-tumb img {
@@ -458,43 +465,70 @@
       color: var(--orange);
     }
 
-    /*ABOUT - CONTENT  */
+
+    /* Contenedor principal para la sección "Nosotros" y "Contacto" */
     .about-form {
-      width: 80%;
-      height: 550px;
-      margin: 0 auto;
+      width: 90%;
+      max-width: 1200px;
+      height: auto;
+      margin: 60px auto 80px auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0;
       background-color: var(--gris);
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-content{
-      width: 50%;      
-    }
-
-    .about-content h3{
-      color: var(--celeste-f);
-    }
-
-    .form-content {
-      /* background: white; */
-      padding: 40px;
+      padding: 0;
       border-radius: 12px;
-    /*   box-shadow: 0px 14px 32px 0px #00000026; */
-      /* max-width: 800px; */
+      box-shadow: 0px 14px 32px 0px var(--sombra);
+      overflow: hidden;
+    }
+
+    /* Contenido de texto "Nuestra empresa" */
+    .about-content {
       width: 50%;
+      padding: 40px;
+      background-color: var(--celeste-f);
+      color: var(--blanco-f);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-content h3 {
+      margin-bottom: 25px;
+      color: var(--orange);
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      text-align: left;
+      border-bottom: 3px solid var(--orange);
+      padding-bottom: 10px;
+      display: inline-block;
+      text-transform: capitalize;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 16px;
+      color: #e0e0e0;
+    }
+
+    /* Formulario de Contacto */
+    .form-content {
+      width: 50%;
+      padding: 40px;
+      background: var(--blanco-f);
+      /* border-radius: 0 12px 12px 0; */
+      box-shadow: none;
     }
 
     .form-content h3 {
-      margin-bottom: 30p x;
+      margin-bottom: 20px;
       color: var(--celeste-f);
-      font-size: 28px;
+      font-size: 32px;
       text-align: center;
+      font-family: "Playfair Display", serif;
     }
 
     .form-group {
@@ -503,71 +537,55 @@
 
     .form-group label {
       display: block;
-      margin-bottom: 8px;
-      color: #34495e;
-      font-weight: 500;
-      font-size: 14px;
+      margin-bottom: 5px;
+      color: var(--negro);
+      font-weight: 600;
+      font-size: 15px;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 14px;
-      font-family: Arial, sans-serif;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: "Montserrat", sans-serif;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
-      border-color: #3498db;
-      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(227, 109, 61, 0.2);
     }
 
     .form-group textarea {
       resize: vertical;
-      min-height: 120px;
+      min-height: 150px;
     }
 
     .btn-submit {
-      width: 100%;
-      padding: 14px;
-      background: var(--celeste-d);
-      color: var(--blanco-f);
+      width: 50%;
+      padding: 15px;
+      background: var(--orange);
+      color: var(--gris);
       border: none;
-      border-radius: 6px;
-      font-size: 16px;
+      border-radius: 5px;
+      font-size: 18px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      transition: background 0.5s, transform 0.5s;
     }
 
     .btn-submit:hover {
-      background: var(--orange);
-      /* color: var(--negro); */
-      transform: translateY(-2px);
+      background: var(--celeste-f);
     }
 
     .btn-submit:active {
-      transform: translateY(0);
+      transform: translateY(1);
     }
-
-
-    .about-content {
-      width: 50%;
-      /* position: relative; */
-    }
-
-    .about-content h1 {
-      font-size: 38px;
-      line-height: 60px;
-      margin-bottom: 10px;
-    }
-
-
 
 
 
@@ -582,7 +600,6 @@
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
-      /* centrado */
       display: flex;
       justify-content: space-around;
       gap: 30px;
@@ -598,10 +615,11 @@
     .footer-column h3 {
       font-family: "Playfair Display", serif;
       margin-bottom: 15px;
-      font-size: 20px;
+      font-size: 26px;
       letter-spacing: 1px;
-      color: #ecf0f1;
-      border-bottom: 3px solid var(--rojo-ladrillo);
+      color: var(--orange);
+      border-bottom: 3px solid var(--orange);
+      padding-bottom: 5px;
     }
 
     .footer-column ul {
@@ -692,11 +710,11 @@
 
 
     /* ============================================== */
-    /* MEDIA QUERIES - RESPONSIVE DESIGN     */
+    /* MEDIA QUERIES - RESPONSIVE DESIGN     */
     /* ============================================== */
 
     /* ----------------------------------------------- */
-    /* A. PANTALLAS PEQUEÑAS (Mobile: 480px)   */
+    /* A. PANTALLAS PEQUEÑAS (Mobile: 480px)   */
     /* ----------------------------------------------- */
 
     @media (max-width: 480px) {
@@ -708,11 +726,28 @@
         font-size: 12px;
         padding: 15px;
       }
+
+      .btn-submit {
+        width: 100%;
+      }
+
+      .auto-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .nav-list{
+        background-color: rgba(53, 79, 107, 0.5);
+      }
+
+      .nav-list li {
+        width: 100%;
+      }
     }
 
-
     /* ----------------------------------------------- */
-    /* A. PANTALLAS PEQUEÑAS (Mobile: 320px - 767px)   */
+    /* A. PANTALLAS PEQUEÑAS (Mobile: 320px - 767px)   */
     /* ----------------------------------------------- */
 
     @media (max-width: 767px) {
@@ -868,7 +903,46 @@
       }
 
       .tienda-container h1 {
+        font-size: 32px;
+      }
+
+      /* ABOUT-FORM Responsive Fixes */
+      .about-form {
+        width: 90%;
+        flex-direction: column;
+        /* Apilamos en móviles */
+        margin: 40px auto;
+        /* Ajustamos el margen */
+        padding: 0;
+      }
+
+      .about-content,
+      .form-content {
+        width: 100%;
+        /* Ocupan todo el ancho */
+        padding: 30px 25px;
+        /* Ajustamos el padding */
+      }
+
+      /* Invertimos el orden para que el 'About' vaya primero en móvil */
+      .about-content {
+        order: -1;
+        border-radius: 12px 12px 0 0;
+        /* Redondeamos solo la parte superior */
+        text-align: center;
+      }
+
+      .about-content h3 {
+        text-align: center;
         font-size: 28px;
+        border-bottom: 3px solid var(--orange);
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+      }
+
+      .form-content {
+        border-radius: 0 0 12px 12px;
+        /* Redondeamos solo la parte inferior */
       }
     }
 
@@ -915,10 +989,26 @@
         /* Dos tarjetas por fila con espacio entre ellas */
         max-width: 350px;
       }
+
+      /* ABOUT-FORM Tablet Fixes */
+      .about-form {
+        width: 95%;
+        /* Un poco más de ancho en tablet */
+        margin: 50px auto;
+      }
+
+      .about-content,
+      .form-content {
+        padding: 30px;
+      }
+
+      .about-content h3 {
+        font-size: 28px;
+      }
     }
 
     /* ----------------------------------------------- */
-    /* C. PANTALLAS GRANDES (Desktop: > 1024px)         */
+    /* C. PANTALLAS GRANDES (Desktop: > 1024px)         */
     /* ----------------------------------------------- */
     /* No se necesitan cambios, los estilos base ya cubren esta vista. */
   </style>
@@ -978,7 +1068,7 @@
       </div>
       <nav class="h-2-nav-container">
         <ul class="nav-list">
-          <li><a href="">Galeria</a></li>
+          <li><a href="">Galería</a></li>
           <li><a href="">Nosotros</a></li>
           <li><a href="">Contacto</a></li>
         </ul>
@@ -1034,7 +1124,7 @@
     <!-- TIENDA -->
     <section class="tienda" id="galeria">
       <div class="tienda-container">
-        <h1>Vehículos disponibles</h1>
+        <h1>Modelos Destacadas del Mes</h1>
       </div>
       <div class="auto-grid">
         <div class="auto-card">
@@ -1131,15 +1221,12 @@
       </div>
       <div class="about-content">
         <h3>Nuestra empresa</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil aperiam atque soluta iure magni facere odit
-          expedita inventore repellendus facilis, pariatur quae tenetur animi consequuntur veritatis in. Blanditiis,
-          inventore laudantium.</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem hic odio voluptatem, rerum molestiae placeat
-          eaque beatae tenetur ex corrupti expedita nostrum vel? Ipsa libero quo quis officiis earum accusamus?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit deleniti, odio neque ipsa
-          fugit nisi! Aspernatur, veritatis, possimus eius officia voluptatum aliquam libero culpa fugiat harum minus
-          sint repudiandae!</p>
-
+        <p>Una empresa Familiar en constante evolución y siempre pensando en el cliente.</p>
+        <p>Hace 40 años, nos encontramos al servicio del usuario automotor brindándole una amplia gama de servicios
+          acorde a sus necesidades. El estar siempre en la zona y con un apellido reconocido genera confianza de manera
+          que el producto que más hacemos valer es la tranquilidad que vendemos al cliente. Todo este crecimiento fue
+          gracias a nuestro personal capacitado encargado de diferentes áreas sin descuidar nuestra atención
+          personalizada.</p>
       </div>
     </div>
 
